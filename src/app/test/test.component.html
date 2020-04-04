@@ -1,0 +1,24 @@
+<h3>ngModel to get text fron an input</h3>
+  <input [(ngModel)]="name" #ctrl="ngModel" required>
+
+    <p>Value: {{ name }}</p>
+    <p>Valid: {{ ctrl.valid }}</p>
+    
+    <button (click)="setValue()">Set value</button>
+
+<h3>ngModel to get an object fron a select</h3>
+    <select [(ngModel)]="select">
+      <option *ngFor="let product of products" [ngValue]="product">{{product.name}}</option>
+    </select>
+    <p>
+      {{getProduct()}}
+    </p>
+
+<h3>reference template to get an object fron a select</h3>
+<h5> seems that is not possible, only we can get the string value using the property [value] </h5>
+    <select #selector>
+      <option *ngFor="let product of products" [ngValue]="product">{{product.name}}</option>
+    </select>
+    <p>
+      {{selector.ngValue}}
+    </p>
